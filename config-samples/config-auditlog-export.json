@@ -1,0 +1,8 @@
+{
+    "configuration":
+    {
+        "target": "__workspace__",
+        "orgName": "__sourceOrgName__",
+        "apiVersion": "__apiVersion__"
+    }
+}

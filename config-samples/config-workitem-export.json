@@ -1,0 +1,17 @@
+{
+    "configuration":
+    {
+        "source": "__source__",
+        "target": "__workspace__",
+        "batchSize": 50,
+        "skip": 0,
+        "projects": [
+            {
+              "name":"__sourceProject__",
+              "query":"Select * From WorkItems Where [System.TeamProject] = '__sourceProject__' Order By [Id] Asc"
+            }
+        ],
+        "SkipAlreadyDownloadedRevisions": true,
+        "apiVersion": "__apiVersion__"
+    }
+}

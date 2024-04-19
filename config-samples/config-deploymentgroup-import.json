@@ -1,0 +1,7 @@
+{
+    "target": "__target__",
+    "SourceFilePath": "__workspace__",
+    "targetProject": "__targetProject__",
+    "queueIdMapping": "__workspace__\\mappings\\queueid_map.csv",
+    "apiVersion": "__apiVersion__"
+}

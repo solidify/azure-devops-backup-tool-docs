@@ -1,0 +1,24 @@
+{
+  "configuration": {
+    "source": "__source__",
+    "Target": "__workspace__",
+    "Projects":  [
+      {
+        "Name":  "__sourceProject__",
+        "Repositories":  [
+          {
+            "Name":  "*"
+          }
+        ]
+      }
+    ],
+    "UseCloudFileShare":  false,
+    "AlreadyAuthenticatedInWindows": false,
+    "IncludeGitLFSAssets": false,
+    "UseCustomGitCredentials": false,
+    "CustomGitUsername": "",
+    "CustomGitPassword": "",
+    "BareClone": false,
+    "apiVersion": "__apiVersion__"
+  }
+}

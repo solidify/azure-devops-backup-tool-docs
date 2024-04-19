@@ -1,0 +1,10 @@
+{
+    "target": "__target__",
+    "SourceFilePath": "__workspace__",
+    "targetProject": "__targetProject__",
+    "TeamMapping": "__workspace__\\mappings\\team_map.csv",
+    "TeamBoardMapping": "__workspace__\\mappings\\teamboard_map.csv",
+    "TeamBoardColumnMapping": "__workspace__\\mappings\\teamboardcolumn_map.csv",
+    "apiVersion": "__apiVersion__"
+  }
+  

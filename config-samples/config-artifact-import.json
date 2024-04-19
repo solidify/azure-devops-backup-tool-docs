@@ -1,0 +1,11 @@
+{
+    "target": "__target__",
+    "SourceFilePath": "__workspace__\\__sourceProject__\\Artifacts",
+    "sourceProject": "__sourceProject__",
+    "targetProject": "__targetProject__",
+    "OrgName": "__targetOrgName__",
+    "AppendGuidToFeedNameOnConflict": true,
+    "onPrem": __onPrem__,
+    "orgScoped": false,
+    "apiVersion": "__apiVersion__"
+}

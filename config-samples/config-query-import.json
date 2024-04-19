@@ -1,0 +1,12 @@
+{
+  "target": "__target__",
+  "SourceFilePath": "__workspace__",
+  "sourceProject": "__sourceProject__",
+  "targetProject": "__targetProject__",
+  "AreaPathMapping": "__workspace__\\mappings\\areapath_map.csv",
+  "IterationPathMapping": "__workspace__\\mappings\\iterationpath_map.csv",
+  "IdentityMapping": "__workspace__\\mappings\\identity_map.csv",
+  "TeamMapping": "__workspace__\\mappings\\team_map.csv",
+  "WiqlFieldMapping": "__workspace__\\mappings\\wiqlfield_map.csv",
+  "apiVersion": "__apiVersion__"
+}

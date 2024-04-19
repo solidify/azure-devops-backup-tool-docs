@@ -1,0 +1,12 @@
+{
+    "target": "__target__",
+    "SourceFilePath": "__workspace__",
+    "targetProject": "__targetProject__",
+    "sourceProject": "__sourceProject__",
+    "WorkItemMapping": "__workspace__\\mappings\\workitem_map.csv",
+    "AlreadyAuthenticatedInWindows": false,
+    "UseCustomGitCredentials": false,
+    "CustomGitUsername": "",
+    "CustomGitPassword": "",
+    "apiVersion": "__apiVersion__"
+}

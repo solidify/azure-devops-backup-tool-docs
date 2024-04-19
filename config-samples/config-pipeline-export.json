@@ -1,0 +1,17 @@
+{
+    "configuration":
+    {
+        "source": "__source__",
+        "target": "__workspace__",
+        "orgName": "__sourceOrgName__",
+        "ProjectName": "__sourceProject__",
+        "onPrem": __onPrem__,
+        "buildDefinitionFilters": [
+            {"path": ""}
+        ],
+        "releaseDefinitionFilters": [
+            {"path": ""}
+        ],
+        "apiVersion": "__apiVersion__"
+    }
+}

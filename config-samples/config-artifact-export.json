@@ -1,0 +1,12 @@
+{
+    "configuration":
+    {
+        "source": "__source__",
+        "target": "__workspace__",
+        "ProjectName": "__sourceProject__",
+        "orgName": "__sourceOrgName__",
+        "onPrem": __onPrem__,
+        "apiVersion": "__apiVersion__",
+        "orgScoped": false
+    }
+}

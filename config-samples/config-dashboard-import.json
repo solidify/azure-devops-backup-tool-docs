@@ -1,0 +1,19 @@
+{
+    "source": "__source__",
+    "target": "__target__",
+    "SourceFilePath": "__workspace__",
+    "SourceOrgName": "__sourceOrgName__",
+    "SourceProject": "__sourceProject__",
+    "targetProject": "__targetProject__",
+    "onPrem": __onPrem__,
+    "BuildDefinitionMapping": "__workspace__\\mappings\\builddefinition_map.csv",
+    "EnvironmentMapping": "__workspace__\\mappings\\environment_map.csv",
+    "ProjectMapping": "__workspace__\\mappings\\project_map.csv",
+    "QueryMapping": "__workspace__\\mappings\\query_map.csv",
+    "ReleaseDefinitionMapping": "__workspace__\\mappings\\releasedefinition_map.csv",
+    "TeamMapping": "__workspace__\\mappings\\team_map.csv",
+    "IdentityMapping": "__workspace__\\mappings\\identity_map.csv",
+    "TestPlanMapping": "__workspace__\\mappings\\testplan_map.csv",
+    "TestSuiteMapping": "__workspace__\\mappings\\testsuite_map.csv",
+    "apiVersion": "__apiVersion__"
+}

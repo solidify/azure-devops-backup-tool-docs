@@ -1,0 +1,9 @@
+{
+    "target": "__target__",
+    "SourceFilePath": "__workspace__",
+    "targetProject": "__targetProject__",
+    "IdentityMapping": "__workspace__\\mappings\\identity_map.csv",
+    "TeamMapping": "__workspace__\\mappings\\team_map.csv",
+    "BuildDefinitionMapping": "__workspace__\\mappings\\builddefinition_map.csv",
+    "apiVersion": "__apiVersion__"
+}

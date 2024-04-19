@@ -1,0 +1,8 @@
+{
+    "target": "__target__",
+    "SourceFilePath": "__workspace__",
+    "TargetProject": "__targetProject__",
+    "RepositoryMapping": "__workspace__\\mappings\\repository_map.csv",
+    "IdentityMapping": "__workspace__\\mappings\\identity_map.csv",
+    "apiVersion": "__apiVersion__"
+}

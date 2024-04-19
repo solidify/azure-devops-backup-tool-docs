@@ -1,0 +1,18 @@
+{
+  "configuration": {
+    "source": "__source__",
+    "Target": "__workspace__",
+    "Projects":  [
+      {
+        "Name":  "__sourceProject__",
+        "Repositories":  [
+          {
+            "Name":  ""
+          }
+        ]
+      }
+    ],
+    "UseCloudFileShare":  false,
+    "apiVersion": "__apiVersion__"
+  }
+}

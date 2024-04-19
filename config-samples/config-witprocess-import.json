@@ -1,0 +1,6 @@
+{
+  "target": "__target__",
+  "SourceFilePath": "__workspace__",
+  "targetProject": "__targetProject__",
+  "apiVersion": "__apiVersion__"
+}

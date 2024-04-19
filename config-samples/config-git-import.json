@@ -1,0 +1,11 @@
+{
+    "target": "__target__",
+    "SourceFilePath": "__workspace__\\__sourceProject__",
+    "targetProject": "__targetProject__",
+    "AlreadyAuthenticatedInWindows": false,
+    "UseCustomGitCredentials": false,
+    "CustomGitUsername": "",
+    "CustomGitPassword": "",
+    "DisableCommitMentionLinkingDuringImport": true,
+    "apiVersion": "__apiVersion__"
+}

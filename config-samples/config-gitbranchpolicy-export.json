@@ -1,0 +1,9 @@
+{
+  "configuration":
+  {
+    "source": "__source__",
+    "target": "__workspace__",
+    "ProjectName": "__sourceProject__",
+    "apiVersion": "__apiVersion__"
+  }
+}

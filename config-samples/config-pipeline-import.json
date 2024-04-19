@@ -1,0 +1,20 @@
+{
+    "source": "__source__",
+    "target": "__target__",
+    "SourceFilePath": "__workspace__",
+    "targetProject": "__targetProject__",
+    "orgName": "__targetOrgName__",
+    "onPrem": __onPrem__,
+    "IsRepoInGithub": false,
+    "migrateDeploymentGroupTags": false,
+    "omitDisabledTasksForReleases": false,
+    "definitionPathPrefix": "",
+    "queueIdMapping": "__workspace__\\mappings\\queueid_map.csv",
+    "serviceConnectionMapping": "__workspace__\\mappings\\serviceconnection_map.csv",
+    "deploymentGroupMapping": "__workspace__\\mappings\\deploymentgroup_map.csv",
+    "variableGroupsMapping": "__workspace__\\mappings\\variablegroup_map.csv",
+    "repositoryMapping": "__workspace__\\mappings\\repository_map.csv",
+    "taskNameMapping": "__workspace__\\mappings\\taskname_map.csv",
+    "taskVersionMapping": "__workspace__\\mappings\\taskversion_map.csv",
+    "apiVersion": "__apiVersion__"
+}
