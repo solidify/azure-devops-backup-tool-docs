@@ -4,11 +4,32 @@
 
 This document provides detailed procedures for restoring your Azure DevOps (ADO) organization or project using the Azure DevOps Backup Tool. In the event that your source ADO organization or project becomes unavailable, this guide will help you recreate essential components in your target organization. It encompasses three critical sections:
 
+1. **Creating and Setting Up the Git Repository for Mapping Files**
 1. **Instructions to Map Azure DevOps Agent Queue IDs Before Restoring a Backup**
-2. **Instructions to Map Azure DevOps Service Connections Before Restoring a Backup**
-3. **Instructions to Map Azure DevOps Users Before Restoring a Backup**
+1. **Instructions to Map Azure DevOps Service Connections Before Restoring a Backup**
+1. **Instructions to Map Azure DevOps Users Before Restoring a Backup**
+1. **Setting Up the Restore Pipeline**
 
 Additionally, this guide includes a sample YAML build pipeline demonstrating the restore functionality, as well as instructions for setting up a Git repository to hold the required mapping files.
+
+## Creating and Setting Up the Git Repository for Mapping Files
+
+1. **Create a New Git Repository**:
+   - Create a new Git repository to hold the mapping files.
+   - Ensure the file names match exactly:
+     - `identity_map.csv`
+     - `queueid_map.csv`
+     - `serviceconnection_map.csv`
+
+2. **Add and Commit the Mapping Files**:
+   - Add the mapping files to the repository.
+   - Commit the changes.
+   - Example:
+     ```sh
+     git add identity_map.csv queueid_map.csv serviceconnection_map.csv
+     git commit -m "Add mapping files for ADO restore"
+     git push origin main
+     ```
 
 ## Instructions to Map Azure DevOps Agent Queue IDs Before Restoring a Backup
 
@@ -245,25 +266,6 @@ When restoring a backup in Azure DevOps, it is crucial to map the user identitie
 
 5. **Run the Restore Pipeline**:
    - Execute the restore pipeline. The pipeline will use the mappings in `identity_map.csv` to map the user identities correctly.
-
-## Creating and Setting Up the Git Repository for Mapping Files
-
-1. **Create a New Git Repository**:
-   - Create a new Git repository to hold the mapping files.
-   - Ensure the file names match exactly:
-     - `identity_map.csv`
-     - `queueid_map.csv`
-     - `serviceconnection_map.csv`
-
-2. **Add and Commit the Mapping Files**:
-   - Add the mapping files to the repository.
-   - Commit the changes.
-   - Example:
-     ```sh
-     git add identity_map.csv queueid_map.csv serviceconnection_map.csv
-     git commit -m "Add mapping files for ADO restore"
-     git push origin main
-     ```
 
 ## Setting Up the Restore Pipeline
 
