@@ -1,8 +1,20 @@
-### Instructions to Map Azure DevOps Agent Queue IDs Before Restoring a Backup
+# Azure DevOps Backup and Restore Guide
+
+## Introduction
+
+This document provides detailed procedures for restoring your Azure DevOps (ADO) organization or project using the Azure DevOps Backup Tool. In the event that your source ADO organization or project becomes unavailable, this guide will help you recreate essential components in your target organization. It encompasses three critical sections:
+
+1. **Instructions to Map Azure DevOps Agent Queue IDs Before Restoring a Backup**
+2. **Instructions to Map Azure DevOps Service Connections Before Restoring a Backup**
+3. **Instructions to Map Azure DevOps Users Before Restoring a Backup**
+
+Additionally, this guide includes a sample YAML build pipeline demonstrating the restore functionality, as well as instructions for setting up a Git repository to hold the required mapping files.
+
+## Instructions to Map Azure DevOps Agent Queue IDs Before Restoring a Backup
 
 When restoring a backup in Azure DevOps, it is crucial to map the agent queue IDs from the source project to the target project. This ensures that your pipelines can correctly reference the appropriate agent queues. Follow these steps to map the agent queue IDs:
 
-#### Files Provided by the Backup Job
+### Files Provided by the Backup Job
 
 1. **queueIds.csv**
    - This file contains the details of agent queues from the source project.
@@ -26,7 +38,7 @@ When restoring a backup in Azure DevOps, it is crucial to map the agent queue ID
      1394,
      ```
 
-#### Steps to Map Agent Queue IDs
+### Steps to Map Agent Queue IDs
 
 1. **Recreate or Share Agent Pools in the Target Project**:
    - Recreate the agent pools in the target project, or share the existing ones, ensuring they match the agent pools in the source project.
@@ -79,13 +91,11 @@ When restoring a backup in Azure DevOps, it is crucial to map the agent queue ID
 5. **Run the Restore Pipeline**:
    - Execute the restore pipeline. The pipeline will use the mappings in `queueid_map.csv` to map the agent queues correctly.
 
-By following these steps, you will ensure that all agent queues are accurately mapped, allowing for a smooth restoration of your Azure DevOps project.
-
-### Instructions to Map Azure DevOps Service Connections Before Restoring a Backup
+## Instructions to Map Azure DevOps Service Connections Before Restoring a Backup
 
 When preparing to restore a backup in Azure DevOps, it is essential to map the service connections from the source project to the target project. This process ensures that your pipelines and other configurations continue to work seamlessly after the restore. Follow these steps to correctly map the service connections:
 
-#### Files Provided by the Backup Job
+### Files Provided by the Backup Job
 
 1. **serviceConnections.csv**
    - This file contains the details of service connections from the source project.
@@ -106,7 +116,7 @@ When preparing to restore a backup in Azure DevOps, it is essential to map the s
      1de71cea-4e5c-4ed9-967b-c1840f7a8f10,
      ```
 
-#### Steps to Map Service Connections
+### Steps to Map Service Connections
 
 1. **Recreate Service Connections in the Target Project**:
    - Recreate the service connections in the target project with the same types as those in the source project.
@@ -159,13 +169,11 @@ When preparing to restore a backup in Azure DevOps, it is essential to map the s
 5. **Run the Restore Pipeline**:
    - Execute the restore pipeline. The pipeline will use the mappings in `serviceconnection_map.csv` to map the service connections correctly.
 
-By following these steps, you will ensure that all service connections are accurately mapped, allowing for a smooth restoration of your Azure DevOps project.
-
-### Instructions to Map Azure DevOps Users Before Restoring a Backup
+## Instructions to Map Azure DevOps Users Before Restoring a Backup
 
 When restoring a backup in Azure DevOps, it is crucial to map the user identities from the source project to the target project. This ensures that your project retains the correct user permissions and settings. Follow these steps to map the user identities:
 
-#### Files Provided by the Backup Job
+### Files Provided by the Backup Job
 
 1. **identities.csv**
    - This file contains the details of users from the source project.
@@ -186,7 +194,7 @@ When restoring a backup in Azure DevOps, it is crucial to map the user identitie
      Manuele@solidify.se,23456789-abcd-2345-abcd-23456789abcd
      ```
 
-#### Steps to Map User Identities
+### Steps to Map User Identities
 
 1. **Onboard Users in the Target Organization**:
    - Ensure all necessary users are onboarded in the target Azure DevOps organization.
@@ -238,4 +246,52 @@ When restoring a backup in Azure DevOps, it is crucial to map the user identitie
 5. **Run the Restore Pipeline**:
    - Execute the restore pipeline. The pipeline will use the mappings in `identity_map.csv` to map the user identities correctly.
 
-By following these steps, you will ensure that all user identities are accurately mapped, allowing for a smooth restoration of your Azure DevOps project.
+## Creating and Setting Up the Git Repository for Mapping Files
+
+1. **Create a New Git Repository**:
+   - Create a new Git repository to hold the mapping files.
+   - Ensure the file names match exactly:
+     - `identity_map.csv`
+     - `queueid_map.csv`
+     - `serviceconnection_map.csv`
+
+2. **Add and Commit the Mapping Files**:
+   - Add the mapping files to the repository.
+   - Commit the changes.
+   - Example:
+     ```sh
+     git add identity_map.csv queueid_map.csv serviceconnection_map.csv
+     git commit -m "Add mapping files for ADO restore"
+     git push origin main
+     ```
+
+## Setting Up the Restore Pipeline
+
+Here is a sample YAML build pipeline demonstrating the restore functionality:
+
+```yaml
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+  displayName: 'Use Python 3.x'
+
+- script: |
+    pip install azure-devops
+    python restore.py --identity-map $(System.DefaultWorkingDirectory)/RESTORE/identity_map.csv --queueid-map $(System.DefaultWorkingDirectory)/RESTORE/queueid_map.csv --serviceconnection-map $(System.DefaultWorkingDirectory)/RESTORE/serviceconnection_map.csv
+  displayName: 'Run Restore Script'
+```
+
+**Instructions for the Pipeline Task**:
+1. **Point to the Repository Holding the Mapping Files**:
+   - Ensure the pipeline has access to the Git repository with the mapping files.
+   - You can include a step to clone the repository or ensure the files are part of the pipeline artifacts.
+
+2. **Adjust the Paths**:
+   - Make sure the paths to the mapping files in the script step match where they are located in your repository or artifacts.
