@@ -16,7 +16,7 @@ Additionally, this guide includes a sample YAML build pipeline demonstrating the
 
 1. **Create a New Git Repository**:
    - Create a new Git repository to hold the mapping files.
-   - Ensure the file names match exactly:
+   - After going through this guide, the Git repository should contain the following files (the file names must match exactly):
      - `identity_map.csv`
      - `queueid_map.csv`
      - `serviceconnection_map.csv`
