@@ -160,3 +160,82 @@ When preparing to restore a backup in Azure DevOps, it is essential to map the s
    - Execute the restore pipeline. The pipeline will use the mappings in `serviceconnection_map.csv` to map the service connections correctly.
 
 By following these steps, you will ensure that all service connections are accurately mapped, allowing for a smooth restoration of your Azure DevOps project.
+
+### Instructions to Map Azure DevOps Users Before Restoring a Backup
+
+When restoring a backup in Azure DevOps, it is crucial to map the user identities from the source project to the target project. This ensures that your project retains the correct user permissions and settings. Follow these steps to map the user identities:
+
+#### Files Provided by the Backup Job
+
+1. **identities.csv**
+   - This file contains the details of users from the source project.
+   - **Purpose**: Reference only. It lists the ID, principal name, and display name of each user.
+   - **Example**:
+     ```
+     "id","$_.user.principalName","$_.user.displayName"
+     "844b3435-b85f-6229-b83a-2569d498b367","simon.liolios@solidify.se","Simon Liolios"
+     "9db2d0e5-6a4b-607b-a298-25aab8990d10","Manuele@solidify.se","Manuel Ericstam"
+     ```
+
+2. **identity_map.csv**
+   - This file is where you will map the principal names and GUIDs of the users from the source project to the target project.
+   - **Purpose**: To be filled in and committed to a Git repo before running the restore pipeline.
+   - **Example**:
+     ```
+     simon.liolios@solidify.se,12345678-abcd-1234-abcd-12345678abcd
+     Manuele@solidify.se,23456789-abcd-2345-abcd-23456789abcd
+     ```
+
+#### Steps to Map User Identities
+
+1. **Onboard Users in the Target Organization**:
+   - Ensure all necessary users are onboarded in the target Azure DevOps organization.
+   - Use the `identities.csv` file to reference the users from the source project.
+
+2. **Obtain GUIDs and Principal Names of Users in the Target Organization**:
+   - Each user in Azure DevOps has a unique GUID and principal name. You need to map the source GUIDs to the corresponding target GUIDs.
+   - To obtain the GUIDs and principal names of the users in the target project, follow these instructions:
+
+     **Manual Method**:
+     - Navigate to the Azure DevOps portal.
+     - Go to `Organization settings` > `Users`.
+     - Click on each user to find their details, including the GUID.
+
+     **Programmatic Method Using PowerShell**:
+     - You can fetch the users programmatically using Azure DevOps REST API.
+
+     ```powershell
+     # PowerShell script to fetch users in the target project
+     $organization = "YourOrgName"
+     $pat = "YourPAT"  # Personal Access Token
+     $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$($pat)"))
+
+     $url = "https://vsaex.dev.azure.com/$organization/_apis/userentitlements?api-version=6.0-preview.3"
+
+     $response = Invoke-RestMethod -Uri $url -Method Get -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)}
+
+     # Extract GUIDs and principal names
+     $users = $response.value | Select-Object @{Name="id";Expression={$_.user.id}}, @{Name="principalName";Expression={$_.user.principalName}}
+
+     # Export to CSV for reference
+     $users | Export-Csv -Path "target_users.csv" -NoTypeInformation
+
+     # Display the users
+     $users | ForEach-Object { "$($_.principalName),$($_.id)" }
+     ```
+
+3. **Map the GUIDs and Principal Names in identity_map.csv**:
+   - Open `identity_map.csv` and fill in the target project’s GUIDs corresponding to the source principal names.
+   - **Example**:
+     ```
+     simon.liolios@solidify.se,12345678-abcd-1234-abcd-12345678abcd
+     Manuele@solidify.se,23456789-abcd-2345-abcd-23456789abcd
+     ```
+
+4. **Commit the identity_map.csv**:
+   - After filling in the `identity_map.csv`, commit this file to the specified Git repository.
+
+5. **Run the Restore Pipeline**:
+   - Execute the restore pipeline. The pipeline will use the mappings in `identity_map.csv` to map the user identities correctly.
+
+By following these steps, you will ensure that all user identities are accurately mapped, allowing for a smooth restoration of your Azure DevOps project.
