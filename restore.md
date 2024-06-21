@@ -319,22 +319,51 @@ When restoring a backup in Azure DevOps, it is crucial to map the user identitie
 Here is a sample YAML build pipeline demonstrating the restore functionality:
 
 ```yaml
-trigger:
-- main
+trigger: none
+
+variables:
+- name: sourceUrl
+  value: https://dev.azure.com/solidifydemo
+- name: sourceOrg
+  value: solidifydemo
+- name: sourceProject
+  value: ContosoAir
+- name: targetProject
+  value: 'ContosoAirMigrated'
+- name: sourceUsername
+  value: john.doe@solidify.dev
+- name: workspace
+  value: '$(System.DefaultWorkingDirectory)/MigrationWorkspace'
+- name: System.Debug
+  value: true
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: UsePythonVersion@0
+# Extract the snapshot from the backup server (here denoted with X:\)
+- task: ExtractFiles@1
   inputs:
-    versionSpec: '3.x'
-  displayName: 'Use Python 3.x'
+    archiveFilePatterns: 'X:\AdoBackupFolder\Backup-20230614.4.zip'
+    destinationFolder: 'C:\AdoBackupWorkspace'
+    cleanDestinationFolder: true
 
-- script: |
-    pip install azure-devops
-    python restore.py --identity-map $(System.DefaultWorkingDirectory)/RESTORE/identity_map.csv --queueid-map $(System.DefaultWorkingDirectory)/RESTORE/queueid_map.csv --serviceconnection-map $(System.DefaultWorkingDirectory)/RESTORE/serviceconnection_map.csv
-  displayName: 'Run Restore Script'
+# Run import job
+- task: ado-backup-tool-import@1
+  inputs:
+    target: '$(sourceUrl)'
+    sourceOrgName: '$(sourceOrg)'
+    targetOrgName: '$(sourceOrg)'
+    sourceProject: '$(sourceProject)'
+    targetProject: '$(targetProject)'
+    targetUsername: '$(sourceUsername)'
+    sourcePAT: '$(migrationToken)'
+    targetPAT: '$(migrationToken)'
+    onPrem: false
+    workspace: 'C:\AdoBackupWorkspace'
+    resourceWorkItem: true
+  env:
+    SYSTEM_ACCESSTOKEN: $(system.accesstoken)
 ```
 
 **Instructions for the Pipeline Task**:
