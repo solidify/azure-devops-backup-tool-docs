@@ -10,9 +10,9 @@ Welcome to the Azure DevOps Backup Tool Documentation repository. This repositor
   - Contains documentation on using the **CLI** to backup and restore individual components.
   - Includes detailed guides on creating and using **custom configuration files** for your backup and restore processes.
 
-- **config-samples**
-  - Sample **custom configuration files** for each component.
-  - Use these samples as a reference or starting point for creating your own custom configuration files.
+- **config-templates**
+  - Template **custom configuration files** for each component.
+  - Use these templates as a reference or starting point for creating your own custom configuration files.
 
 ### Documents
 
