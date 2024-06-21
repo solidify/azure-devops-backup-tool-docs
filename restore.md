@@ -12,11 +12,15 @@ This document provides detailed procedures for restoring your Azure DevOps (ADO)
 1. **Instructions to Map Azure DevOps Users Before Restoring a Backup**
 1. **Setting Up the Restore Pipeline**
 
-### Manual mapping process overview
+### Manual Mapping Process Overview
 
-Some resources rely on mapping files being provided, in order to ensure that the tool can locate and refer to all neccessary infrastructure before importing a given resorce. The tool does a good job of infering most these mappings automatically, but we still need to map the following resources manually:
+When restoring certain resources, we will need to provide mapping files to ensure that the tool can locate and reference all necessary infrastructure. Although the Azure DevOps Backup Tool infers most mappings automatically, manual mapping is required for the following resources:
 
-In order to retrieve these files, you can simply publish the **workspace** folder as a pipeline artifact. For example, you would put these tasks after your **Azure DevOps Backup Tool: Export** task:
+- Users (identities)
+- Agent Queues (project-level agent pools)
+- Service Connections
+
+The Azure DevOps Backup Tool will create some files to assist you with the manual mapping process. To retrieve these mapping files, you can publish the **workspace** folder as a pipeline artifact. In order to do this, you must add these tasks after your **Azure DevOps Backup Tool: Export** task in your pipeline:
 
 ```yml
 - task: ArchiveFiles@2
@@ -36,9 +40,9 @@ In order to retrieve these files, you can simply publish the **workspace** folde
     publishLocation: 'pipeline'
 ```
 
-**Note**: You can find a full example of a working Restore pipeline at the bottom of this document.
+**Note**: A full example of a working Restore pipeline is provided at the end of this document.
 
-Inside the published artifact, you will find a folder named **RESTORE**. This folder will contain all of the following files, which can be used to simplify the mapping process (more specific documentation on each file will follow later in this document):
+Within the published artifact, you will find a folder named **RESTORE**. This folder contains the following files, which can assist you in the mapping process (detailed documentation on each file will be provided later in this document):
 
 - `identity_map.csv`
 - `identities.csv`
@@ -46,6 +50,8 @@ Inside the published artifact, you will find a folder named **RESTORE**. This fo
 - `queueIds.csv`
 - `serviceconnection_map.csv`
 - `serviceConnections.csv`
+
+We strongly recommend that you use these files to facilitate the manual mapping of resources for an accurate and efficient restoration process.
 
 ## Creating and Setting Up the Git Repository for Mapping Files
 
