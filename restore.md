@@ -2,15 +2,15 @@
 
 ## Introduction
 
-This document provides detailed procedures for restoring your Azure DevOps (ADO) organization or project using the Azure DevOps Backup Tool. In the event that your source ADO organization or project becomes unavailable, this guide will help you recreate essential components in your target organization. It encompasses three critical sections:
+This document provides detailed procedures for restoring your Azure DevOps (ADO) organization or project using the Azure DevOps Backup Tool. In the event that your source ADO organization or project becomes unavailable, this guide will help you recreate the components in your target organization.
+
+### Process overview
 
 1. **Creating and Setting Up the Git Repository for Mapping Files**
 1. **Instructions to Map Azure DevOps Agent Queue IDs Before Restoring a Backup**
 1. **Instructions to Map Azure DevOps Service Connections Before Restoring a Backup**
 1. **Instructions to Map Azure DevOps Users Before Restoring a Backup**
 1. **Setting Up the Restore Pipeline**
-
-Additionally, this guide includes a sample YAML build pipeline demonstrating the restore functionality, as well as instructions for setting up a Git repository to hold the required mapping files.
 
 ## Creating and Setting Up the Git Repository for Mapping Files
 
@@ -101,6 +101,7 @@ When restoring a backup in Azure DevOps, it is crucial to map the agent queue ID
    - Open `queueid_map.csv` and fill in the target project’s IDs corresponding to the source IDs.
    - **Example**:
      ```
+     <source ID>,<target ID>
      1392,1234
      1393,5678
      1394,9101
@@ -180,6 +181,7 @@ When preparing to restore a backup in Azure DevOps, it is essential to map the s
    - Open `serviceconnection_map.csv` and fill in the target project’s GUIDs corresponding to the source GUIDs.
    - **Example**:
      ```
+     <source ID>,<target ID>
      87fd1810-81ee-484f-a02e-8836d33cac3b,abc12345-6789-def0-1234-56789abcdef0
      1de71cea-4e5c-4ed9-967b-c1840f7a8f10,12345678-90ab-cdef-1234-567890abcdef
      ```
@@ -257,8 +259,12 @@ When restoring a backup in Azure DevOps, it is crucial to map the user identitie
    - Open `identity_map.csv` and fill in the target project’s GUIDs corresponding to the source principal names.
    - **Example**:
      ```
-     simon.liolios@solidify.se,12345678-abcd-1234-abcd-12345678abcd
-     Manuele@solidify.se,23456789-abcd-2345-abcd-23456789abcd
+     <source ID>,<target ID>
+     <source email>,<target email>
+     simon.liolios@solidify.se,simon.liolios@solidify.se
+     12345678-abcd-1234-abcd-12345678abcd,1d189893-085d-4cab-9949-f08b0d801cb9
+     Manuele@solidify.se,Manuele@solidify.se
+     23456789-abcd-2345-abcd-23456789abcd,bec2dfca-1e85-4cd4-b808-3f1f5356d8ef
      ```
 
 4. **Commit the identity_map.csv**:
