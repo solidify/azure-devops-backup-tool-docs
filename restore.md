@@ -345,7 +345,7 @@ steps:
 - task: ExtractFiles@1
   inputs:
     archiveFilePatterns: 'X:\AdoBackupFolder\Backup-20230614.4.zip'
-    destinationFolder: 'C:\AdoBackupWorkspace'
+    destinationFolder: '$(workspace)'
     cleanDestinationFolder: true
 
 # Run import job
@@ -360,16 +360,17 @@ steps:
     sourcePAT: '$(migrationToken)'
     targetPAT: '$(migrationToken)'
     onPrem: false
-    workspace: 'C:\AdoBackupWorkspace'
+    workspace: '$(workspace)'
     resourceWorkItem: true
+    mappingFilePath: '$(System.DefaultWorkingDirectory)/mapping-files'
   env:
     SYSTEM_ACCESSTOKEN: $(system.accesstoken)
 ```
 
 **Instructions for the Pipeline Task**:
-1. **Point to the Repository Holding the Mapping Files**:
-   - Ensure the pipeline has access to the Git repository with the mapping files.
-   - You can include a step to clone the repository or ensure the files are part of the pipeline artifacts.
-
-2. **Adjust the Paths**:
-   - Make sure the paths to the mapping files in the script step match where they are located in your repository or artifacts.
+1. **Point to the directory holding the Mapping Files**:
+   - You can either commit the mapping files to the same **git repository as the restore pipeline**, or commit them to a **separate git repository** and include a step to clone the repository.
+   - Use the task parameter **mappingFilePath** to sepcify the path to the .csv mapping files. The .csv files must be located at the root of this exact directory, and the file names must match exactly:
+     - `identity_map.csv`
+     - `queueid_map.csv`
+     - `serviceconnection_map.csv`
