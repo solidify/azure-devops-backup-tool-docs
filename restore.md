@@ -36,6 +36,8 @@ In order to retrieve these files, you can simply publish the **workspace** folde
     publishLocation: 'pipeline'
 ```
 
+**Note**: You can find a full example of a working Restore pipeline at the bottom of this document.
+
 Inside the published artifact, you will find a folder named **RESTORE**. This folder will contain all of the following files, which can be used to simplify the mapping process (more specific documentation on each file will follow later in this document):
 
 - `identity_map.csv`
