@@ -14,7 +14,7 @@ This document provides detailed procedures for restoring your Azure DevOps (ADO)
 
 ### Manual mapping process overview
 
-Some resources rely on mapping files being provided, in order to ensure that the tool can locate and refer to all neccessary infrastructure before importing a given resorce. The tool does a good job of infering these mappings automatically, but we still need to map the following resources manually:
+Some resources rely on mapping files being provided, in order to ensure that the tool can locate and refer to all neccessary infrastructure before importing a given resorce. The tool does a good job of infering most these mappings automatically, but we still need to map the following resources manually:
 
 In order to retrieve these files, you can simply publish the **workspace** folder as a pipeline artifact. For example, you would put these tasks after your **Azure DevOps Backup Tool: Export** task:
 
