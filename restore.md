@@ -12,6 +12,39 @@ This document provides detailed procedures for restoring your Azure DevOps (ADO)
 1. **Instructions to Map Azure DevOps Users Before Restoring a Backup**
 1. **Setting Up the Restore Pipeline**
 
+### Manual mapping process overview
+
+Some resources rely on mapping files being provided, in order to ensure that the tool can locate and refer to all neccessary infrastructure before importing a given resorce. The tool does a good job of infering these mappings automatically, but we still need to map the following resources manually:
+
+In order to retrieve these files, you can simply publish the **workspace** folder as a pipeline artifact. For example, you would put these tasks after your **Azure DevOps Backup Tool: Export** task:
+
+```yml
+- task: ArchiveFiles@2
+  continueOnError: true
+  inputs: 
+    rootFolderOrFile: '$(workspace)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)\$(Build.BuildNumber).zip'
+    replaceExistingArchive: false
+
+- task: PublishPipelineArtifact@1
+  continueOnError: true
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)\$(Build.BuildNumber).zip'
+    artifact: 'Export'
+    publishLocation: 'pipeline'
+```
+
+Inside the published artifact, you will find a folder named **RESTORE**. This folder will contain all of the following files, which can be used to simplify the mapping process (more specific documentation on each file will follow later in this document):
+
+- `identity_map.csv`
+- `identities.csv`
+- `queueid_map.csv`
+- `queueIds.csv`
+- `serviceconnection_map.csv`
+- `serviceConnections.csv`
+
 ## Creating and Setting Up the Git Repository for Mapping Files
 
 1. **Create a New Git Repository**:
