@@ -12,6 +12,20 @@ This document provides detailed procedures for restoring your Azure DevOps (ADO)
 1. **Instructions to Map Azure DevOps Users Before Restoring a Backup**
 1. **Setting Up the Restore Pipeline**
 
+### When to use the manual mapping process
+
+The Manual Mapping Process (outlined in the next section) be followed in either one of the following conditions are true:
+
+- The source project or organization is not available
+- The data is migrated to a separate project/organization.
+
+This guide does **not** need to be followed if any of the following conditions are true:
+
+- The data is being restored in the same project. In this case, the neccessary build infrastructure will already be in place, and the guide does not need to be followed.
+- The data is restored to a project in the same organization, and the neccessary build infrastructure is already present (the service connections are set up and have the same names as in the source proejct, and the agent pools are shared as project-level agent queues) the guide does not need to be followed.
+
+Furthermore, user identities only need to be mapped if the data is being migrated to a organization with a different AD, otherwise the tool will be able to infer the users.
+
 ### Manual Mapping Process Overview
 
 When restoring certain resources, we will need to provide mapping files to ensure that the tool can locate and reference all necessary infrastructure. Although the Azure DevOps Backup Tool infers most mappings automatically, manual mapping is required for the following resources:
