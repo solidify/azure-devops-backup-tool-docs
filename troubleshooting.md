@@ -1,5 +1,9 @@
 # Troubleshooting guide
 
+## Point fo contact
+
+You can submit an error report by emailing us at <support.adobackup@solidify.dev>.
+
 ## Troubleshooting guidelines
 
 If the **Azure DevOps Backup Tool** fails to run properly, the problem can sometimes be remedied with some of the below steps:
@@ -92,6 +96,8 @@ In order for us to resolve a customer's problem with the ADO Backup Tool, the cu
   - The **build definition** (.yaml file) of the Backup/Restore build pipeline.
   - The entire **log** from the ado-backup-tool-export/-import task.
   - The .zip file containing the pipeline artifacts, which was generated in step 2.
+
+Email us at <support.adobackup@solidify.dev>
 
 ## Common errors
 
