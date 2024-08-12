@@ -95,7 +95,7 @@ In order for us to resolve a customer's problem with the ADO Backup Tool, the cu
 
 ## Common errors
 
-### Trial license cannot be activated. Error message: 
+### Trial license cannot be activated. Error message: License file has not been specified. Please set the license in the extension settings.
 
 If you are experiencing issues with activating the license, please try to enter the license file a couple of more times in the license input form, refreshing the web page in between. If it still does not work, please follow the below steps to generate some console output to help us with troubleshooting:
  
