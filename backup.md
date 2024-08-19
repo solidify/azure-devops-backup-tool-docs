@@ -38,6 +38,44 @@ Our repository should now be initialized with an empty README:
 
 ### 3. Creating our first backup pipeline
 
+With your Git repository ready, you can now create your first backup pipeline.
+
+In Azure DevOps, go to the **Pipelines** section and create a new pipeline:
+
+![image](https://github.com/user-attachments/assets/c0b44c64-74d4-4bdd-97b9-9dc6484cd133)
+
+When asked **Where is your code?**, select **Azure Repos Git (YAML)**:
+
+![image](https://github.com/user-attachments/assets/d2dcebde-6a7f-415b-ace4-dae733991870)
+
+
+  - **Select Repository**: Choose the repository you created in the previous step (`Backup-Pipelines`).
+  - **YAML Pipeline**: Opt for a YAML-based pipeline for better version control and flexibility. Use a template provided by the Azure DevOps Backup Tool or create your own from scratch.
+  - **Pipeline Script Example**: Below is a basic YAML configuration for a backup pipeline:
+    ```yaml
+    trigger:
+      branches:
+        include:
+          - main
+
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '6.x'
+        installationPath: $(Agent.ToolsDirectory)/dotnet
+
+    - script: |
+        dotnet restore
+        dotnet build --configuration Release
+        dotnet run --project BackupTool --configuration Release
+      displayName: 'Run Backup Tool'
+    ```
+  - **Customization**: Modify the pipeline script to match your backup needs, including the source project, artifacts to back up, and storage location.
+
 ### 4. Storing pipeline variables and secrets in Variable Groups
 
 ### 5. Advanced config file usage + examples for various scenarios
