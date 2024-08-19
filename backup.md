@@ -212,26 +212,28 @@ You can find documentation and usage samples with example configuration files fo
 
 As an exercise, let us create a custom configuration file which will let us granularily filter which Work Items to export in the Backup Pipeline.
 
+Start by creating a new folder inside the git repository named **Backup-Pipelines**:
+
 ![image](https://github.com/user-attachments/assets/446d3000-5527-48eb-beaf-7efbdee2332b)
+
+The new folder name should be `custom-configs` and the residing file name should be `config-workitem-export.json`. This will create a configuration file which will affect only **Work Items** during the backup phase (and not the restore phase):
 
 ![image](https://github.com/user-attachments/assets/dec0ee0e-b4bc-47a2-95a5-5deccbf6521c)
 
-![image](https://github.com/user-attachments/assets/b8eff65a-a872-4b0d-8d30-c20e69be90a2)
-
-![image](https://github.com/user-attachments/assets/41f3a869-6b37-4ff6-8fda-121ab78e6d88)
+Paste the following file contents into the new file, and replace `ORGNAME` with your Azure DevOps organization name, and `PROJECTNAME` with your target project to be backed up:
 
 ```yaml
 {
     "configuration":
     {
-        "source": "https://dev.azure.com/solidify-managed-services-demo",
+        "source": "https://dev.azure.com/ORGNAME",
         "target": "D:\\a\\1\\s\\MigrationWorkspace",
         "batchSize": 50,
         "skip": 0,
         "projects": [
             {
-              "name":"ContosoAir-Demo-Source",
-              "query":"Select * From WorkItems Where [System.TeamProject] = 'ContosoAir-Demo-Source' AND [System.CreatedDate] < '2024-08-08T00:00:00.0000000' Order By [Id] Asc"
+              "name":"PROJECTNAME",
+              "query":"Select * From WorkItems Where [System.TeamProject] = 'PROJECTNAME' AND [System.CreatedDate] < '2024-08-08T00:00:00.0000000' Order By [Id] Asc"
             }
         ],
         "SkipAlreadyDownloadedRevisions": true,
@@ -239,6 +241,15 @@ As an exercise, let us create a custom configuration file which will let us gran
     }
 }
 ```
+The resulting file should look like this:
+
+![image](https://github.com/user-attachments/assets/b8eff65a-a872-4b0d-8d30-c20e69be90a2)
+
+Save the new file by commiting it to the version control history:
+
+![image](https://github.com/user-attachments/assets/41f3a869-6b37-4ff6-8fda-121ab78e6d88)
+
+We are now set up to use our custom configuration file.
 
 #### Verify the configuration file in use
 
