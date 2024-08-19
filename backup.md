@@ -187,9 +187,9 @@ Common use cases for using custom config files are:
 - Filtering git repositories by name (wildcard supported)
 - Filtering build/release pipelines by name (wildcard supported)
 
-You provide custom configuration files by placing them in the **same git repository** as your backup/restore pipeline. The naming convention of the configuration files is always "config-[**type of component**]-[**export/import**].json.
+#### How to enable custom configuration files
 
-You will need to supply the **useCustomConfigurations** and **customConfigurationPath** parameters in the task configuration, like this:
+Edit your back up pipeline again. You will need to supply the **useCustomConfigurations** and **customConfigurationPath** parameters in the task configuration, like this:
 
 ```yml
 useCustomConfigurations: true
@@ -200,9 +200,17 @@ Your pipeline should now look like this:
 
 ![image](https://github.com/user-attachments/assets/9f3c1e48-ad20-4d12-8c7b-c388c13f7eab)
 
+Save the pipeline before continuing with the next step.
+
+#### How to create custom configuration files
+
+You provide custom configuration files by placing them in the **same git repository** as your backup/restore pipeline. The naming convention of the configuration files is always "config-[**type of component**]-[**export/import**].json.
+
 You can view templates for individual configuration files for each ADO component here <https://github.com/solidify/azure-devops-backup-tool-docs/tree/main/config-templates>.
 
-You can find documentation and usage samples with example configuration files for each ADO component here: https://github.com/solidify/azure-devops-backup-tool-docs/tree/main/adapter-docs
+You can find documentation and usage samples with example configuration files for each ADO component here: <https://github.com/solidify/azure-devops-backup-tool-docs/tree/main/adapter-docs>
+
+As an exercise, let us create a custom configuration file which will let us granularily filter which Work Items to export in the Backup Pipeline.
 
 ![image](https://github.com/user-attachments/assets/446d3000-5527-48eb-beaf-7efbdee2332b)
 
