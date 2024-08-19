@@ -32,6 +32,10 @@ Navigate to your Azure DevOps project, go to the **Repos** section, and create a
 
 ![image](https://github.com/user-attachments/assets/18c00353-8b7f-403c-ac8a-9c7e48fe7ae8)
 
+Our repository should now be initialized with an empty README:
+
+![image](https://github.com/user-attachments/assets/d6e6aef2-62d5-4c0c-bd77-3ee321d3b738)
+
 ### 3. Creating our first backup pipeline
 
 ### 4. Storing pipeline variables and secrets in Variable Groups
