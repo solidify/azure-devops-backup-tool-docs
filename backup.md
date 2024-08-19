@@ -283,27 +283,31 @@ After clicking **Run**, you will be taken to the Run results screen. Simply wait
 
 If you ever need to get back to the Run results screen, simply navigate to **Pipelines** -> **Backup-Pipelines** -> (click the latest Run) from anywhere within Azure DevOps.
 
+The pipeline should finish without errors.
+
 ![image](https://github.com/user-attachments/assets/a694901a-e350-44ee-8a27-bf0e84fa904a)
 
-The pipeline should finish without errors:
-
-![image](https://github.com/user-attachments/assets/fa2dde04-00c0-408a-b834-217543b147b0)
-
-In order the view the results of the build, you can do either of the following from the Run results screen:
+From the results screen of the run, you can do either of the following from the screen:
 
 - Click on the **Job** to view the log file.
 - Click on the build artifact to view the components that were succesfully backed up. We also require you to send us the build artifact in order to troubleshoot any issues.
+
+![image](https://github.com/user-attachments/assets/fa2dde04-00c0-408a-b834-217543b147b0)
+
+From the **Artifacs** menu, in order to download and inspect the build artifact, simply click the **downward-facing arrow to the left of "Export"** -> click the **3 dots to the right** -> **Download artifacts**. This will download a .zip-file to your computer which contains the backed up resources.
 
 ![image](https://github.com/user-attachments/assets/bd7ebdf4-443b-4909-a30a-2490c301c1bf)
 
 ### 7. Troubleshooting and support requests
 
+In the event that the ADO Backup Tool fails, you will receive an error message similar to this one at the bottom of the task log:
+
 ![image](https://github.com/user-attachments/assets/fc82e6f2-0a8c-4709-b194-9df51b871b01)
 
-Click anywhere in the log to bring the focus to the log file area, then press **ctrl+F** to search the log file. Enter the search string `ERR]`. All relevant errors should become highlighted, and you can use the search panel to neavigate between them:
+Click anywhere in the log to bring the focus to the log file area, then press **ctrl+F** to search the log file. Enter the search string `ERR]`. All relevant errors should become highlighted, and you can use the search panel to navigate between them:
 
 ![image](https://github.com/user-attachments/assets/090cc3d1-04bf-4fa5-9af9-098efc7a9b34)
 
 If you are making a support request, please make a note of each error and forward all relevant error messages to us via e-mail.
 
-For a more comprehensive guide on troubleshooting the **ADO Bakcup Tool** and submitting support requests, please read this article: <https://github.com/solidify/azure-devops-backup-tool-docs/blob/main/troubleshooting.md>.
+For a more comprehensive guide on troubleshooting the **ADO Backup Tool** and submitting support requests, please read this article: <https://github.com/solidify/azure-devops-backup-tool-docs/blob/main/troubleshooting.md>.
