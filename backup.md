@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/018f08bb-9e13-4053-9418-d20ed91f4eca)# Azure DevOps Backup Tool: Guide to creating your first backup pipeline
+# Azure DevOps Backup Tool: Guide to creating your first backup pipeline
 
 ## Introduction
 
