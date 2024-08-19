@@ -146,7 +146,7 @@ Now click **Save**:
 
 In the **Save** dialogue, click **Save**:
 
-![image](https://github.com/user-attachments/assets/41f4ecc9-c8e5-445b-bdbb-e17be70db9c9)
+![image](https://github.com/user-attachments/assets/0b717dc2-6b07-4dd8-b1f1-35470c855e26)
 
 
 ### 4. Storing pipeline variables and secrets in Variable Groups
