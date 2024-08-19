@@ -232,4 +232,10 @@ The pipeline should finish without errors:
 
 ![image](https://github.com/user-attachments/assets/fc82e6f2-0a8c-4709-b194-9df51b871b01)
 
+Click anywhere in the log to bring the focus to the log file area, then press **ctrl+F** to search the log file. Enter the search string `ERR]`. All relevant errors should become highlighted, and you can use the search panel to neavigate between them:
+
 ![image](https://github.com/user-attachments/assets/090cc3d1-04bf-4fa5-9af9-098efc7a9b34)
+
+If you are making a support request, please make a note of each error and forward all relevant error messages to us via e-mail.
+
+For a more comprehensive guide on troubleshooting the **ADO Bakcup Tool** and submitting support requests, please read this article: <https://github.com/solidify/azure-devops-backup-tool-docs/blob/main/troubleshooting.md>.
