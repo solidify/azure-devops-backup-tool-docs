@@ -94,7 +94,7 @@ steps:
     sourcePAT: '$(migrationToken)'
     onPrem: false
     workspace: '$(workspace)'
-    useCustomConfigurations: true
+    useCustomConfigurations: false
     customConfigurationPath: '$(System.DefaultWorkingDirectory)/custom-configs'
     resourceAreaPath: true
     resourceArtifact: true
@@ -175,6 +175,34 @@ The neccessary variables for the Backup Job are as follows:
 Optionally, you may opt to store your Backup Job variables inside the YAML build pipeline definition itself, or in an Azure KeyVault (use the **Link secrets from an Azure key vault as variables** setting).
 
 ### 5. Advanced config file usage + examples for various scenarios
+
+You can extend the functionality of **ADO Backup Tool** by using custom configuration files. These files will override the default configuration of the underlying application behind the pipeline task, and enable you to change the behavior on a per-component basis.
+
+If you are simply demoing the backup functionality or otherwise have no use for custom confiugration files, you can skip ahead to step 6.
+
+#### Description of custom configuration file usage
+
+Common use cases for using custom config files are:
+
+- Filtering git repositories by name (wildcard supported)
+- Filtering build/release pipelines by name (wildcard supported)
+
+You provide custom configuration files by placing them in the **same git repository** as your backup/restore pipeline. The naming convention of the configuration files is always "config-[**type of component**]-[**export/import**].json.
+
+You will need to supply the **useCustomConfigurations** and **customConfigurationPath** parameters in the task configuration, like this:
+
+```yml
+useCustomConfigurations: true
+customConfigurationPath: '$(System.DefaultWorkingDirectory)/custom-configs'
+```
+
+Your pipeline should now look like this:
+
+![image](https://github.com/user-attachments/assets/9f3c1e48-ad20-4d12-8c7b-c388c13f7eab)
+
+You can view templates for individual configuration files for each ADO component here <https://github.com/solidify/azure-devops-backup-tool-docs/tree/main/config-templates>.
+
+You can find documentation and usage samples with example configuration files for each ADO component here: https://github.com/solidify/azure-devops-backup-tool-docs/tree/main/adapter-docs
 
 ![image](https://github.com/user-attachments/assets/446d3000-5527-48eb-beaf-7efbdee2332b)
 
