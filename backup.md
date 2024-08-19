@@ -186,6 +186,8 @@ Common use cases for using custom config files are:
 
 - Filtering git repositories by name (wildcard supported)
 - Filtering build/release pipelines by name (wildcard supported)
+- Filtering work items based on a WIQL query
+- Overriding default git credentials for git repositories and wikis
 
 #### How to enable custom configuration files
 
