@@ -217,6 +217,8 @@ Now, save and run the pipeline. Inspect the log for the **ADO Backup Tool: Expor
 
 ![image](https://github.com/user-attachments/assets/2051e879-6748-4efe-b99d-0c1e709a273f)
 
+If you ever need to get back to the Run results screen, simply navigate to **Pipelines** -> **Backup-Pipelines** -> (click the latest Run) from anywhere within Azure DevOps.
+
 ![image](https://github.com/user-attachments/assets/a694901a-e350-44ee-8a27-bf0e84fa904a)
 
 The pipeline should finish without errors:
