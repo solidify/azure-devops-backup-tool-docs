@@ -11,7 +11,7 @@ If the **Azure DevOps Backup Tool** fails to run properly, the problem can somet
 1. Run the pipeline with `$(System.Debug) = 'true'` to collect more diagnostics (See the below section in this document).
 1. Manually clear the workspace on the agent server and run the pipeline again.
 1. Ensure that two or more backup jobs are not running concurrently on the same machine.
-1. Ensure that the service account running the build agent has Read/Write access to the workspace folder.
+1. Ensure that the service account running the build agent has Read/Write access to the workspace folder (only applicable when running on a self-hosted build server).
 1. Clear the task manually from `_tasks` inside the agent folder. Then run the pipeline to install the task again.
 
 ## How to gather diagnositcs
