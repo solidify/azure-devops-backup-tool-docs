@@ -1,6 +1,6 @@
 # Troubleshooting guide
 
-## Point fo contact
+## Point of contact
 
 You can submit an error report by emailing us at <support.adobackup@solidify.dev>.
 
