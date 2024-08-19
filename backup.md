@@ -200,6 +200,9 @@ Optionally, you may opt to store your Backup Job variables inside the YAML build
 }
 ```
 
+![image](https://github.com/user-attachments/assets/f3763470-1284-4d38-881b-a16e53cca4aa)
+
+
 ### 6. Running our backup pipeline and assessing the results
 
 ![image](https://github.com/user-attachments/assets/2051e879-6748-4efe-b99d-0c1e709a273f)
