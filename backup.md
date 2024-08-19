@@ -95,7 +95,7 @@ steps:
     onPrem: false
     workspace: '$(workspace)'
     useCustomConfigurations: true
-    customConfigurationPath: '$(System.DefaultWorkingDirectory)/custom-configs-contosoair-demo'
+    customConfigurationPath: '$(System.DefaultWorkingDirectory)/custom-configs'
     resourceAreaPath: true
     resourceArtifact: true
     resourceAuditLog: true
