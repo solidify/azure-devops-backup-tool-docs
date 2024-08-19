@@ -150,13 +150,17 @@ In the **Save** dialogue, click **Save**:
 
 ![image](https://github.com/user-attachments/assets/0b717dc2-6b07-4dd8-b1f1-35470c855e26)
 
-We are now done with creating our 
+We are now done with creating our Backup Pipeline. Before we run it, we must specify some parameters to let the pipeline know our API credentials, where our resources are, etc.
 
 ### 4. Storing pipeline variables and secrets in Variable Groups
 
+We will use **Variable Groups** to store our pipeline parameters, which will enable us to use the backup pipeline in a dynamic fashion.
+
+Under the **Pipelines** -> **Library** menu, add a new Variable Group:
+
 ![image](https://github.com/user-attachments/assets/693619be-ca39-431a-9624-9b8a69b9ffab)
 
-Name the variable group "backup-pipeline" (must match the variable group name in the YAML definition of the backup pipeline). Enter the same variables as shown in the screenshot below and click **Save**.
+Name the variable group "backup-pipeline" (must match the variable group name in the YAML definition of the backup pipeline). You can change the name at any time as long as your consistently update the variable group name in the YAML definition of the pipeline. Enter the same variables as shown in the screenshot below (replace the values with your own scenario) and click **Save**.
 
 ![image](https://github.com/user-attachments/assets/f2640a4c-fbe3-441b-a082-2482caf3427a)
 
