@@ -136,6 +136,8 @@ steps:
     publishLocation: 'pipeline'
 ```
 
+Optionally, you may comment our or delete any of the `resource*` inputs if those components are not desired to be backed up.
+
 The resulting pipeline should now look like this:
 
 ![image](https://github.com/user-attachments/assets/7743b6d6-6c86-4a3f-b6d6-ae4a0402d35c)
@@ -148,7 +150,25 @@ In the **Save** dialogue, click **Save**:
 
 ![image](https://github.com/user-attachments/assets/0b717dc2-6b07-4dd8-b1f1-35470c855e26)
 
+We are now done with creating our 
+
 ### 4. Storing pipeline variables and secrets in Variable Groups
+
+![image](https://github.com/user-attachments/assets/693619be-ca39-431a-9624-9b8a69b9ffab)
+
+Name the variable group "backup-pipeline" (must match the variable group name in the YAML definition of the backup pipeline). Enter the same variables as shown in the screenshot below and click **Save**.
+
+![image](https://github.com/user-attachments/assets/f2640a4c-fbe3-441b-a082-2482caf3427a)
+
+The neccessary variables for the Backup Job are as follows:
+
+- `migrationToken` (The Personal Access Token to be used by the backup job)
+- `sourceOrg` (The source Azure DevOps organization name)
+- `sourceProject` (The source ADO Project name)
+- `sourceUrl` (The URL of the ADO organization)
+- `sourceUsername` (The email address of the user account to be used by the backup job. Must be the same account as the owner of the `migrationToken`)
+
+Optionally, you may opt to store your Backup Job variables inside the YAML build pipeline definition itself, or in an Azure KeyVault (use the **Link secrets from an Azure key vault as variables** setting).
 
 ### 5. Advanced config file usage + examples for various scenarios
 
