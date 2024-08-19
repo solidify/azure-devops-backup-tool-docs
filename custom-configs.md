@@ -6,6 +6,8 @@ Common scenarios for using custom config files include:
 
 - Filtering git repositories by name (wildcard supported)
 - Filtering build/release pipelines by name (wildcard supported)
+- Filtering work items based on a WIQL query
+- Overriding default git credentials for git repositories and wikis
 
 You will need to supply the **useCustomConfigurations** and **customConfigurationPath** parameters in the task configuration, like this:
 
