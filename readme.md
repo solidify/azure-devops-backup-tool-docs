@@ -4,6 +4,15 @@ Welcome to the Azure DevOps Backup Tool Documentation repository. This repositor
 
 ## Overview
 
+### Documents
+
+- **backup.md**
+  - A beginner-friendly guide for backing up your Azure DevOps (ADO) organization or project for the first time.
+- **restore.md**
+  - Detailed procedure for restoring your Azure DevOps organization or project using **Azure DevOps Pipelines**.
+- **custom-configs.md**
+  - A guide on how to use custom configuration files in order to extend the functioality of Azure DevOps Backup Tool on a per-component basis.
+
 ### Folders
 
 - **adapter-docs**
@@ -14,15 +23,6 @@ Welcome to the Azure DevOps Backup Tool Documentation repository. This repositor
 - **config-templates**
   - Template **custom configuration files** for each component.
   - Use these templates as a reference or starting point for creating your own custom configuration files.
-
-### Documents
-
-- **backup.md**
-  - A beginner-friendly guide for backing up your Azure DevOps (ADO) organization or project for the first time.
-- **restore.md**
-  - Detailed procedure for restoring your Azure DevOps organization or project using **Azure DevOps Pipelines**.
-- **custom-configs.md**
-  - A guide on how to use custom configuration files in order to extend the functioality of Azure DevOps Backup Tool on a per-component basis.
 
 ## Getting Started
 
