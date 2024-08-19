@@ -164,7 +164,7 @@ Name the variable group "backup-pipeline" (must match the variable group name in
 
 ![image](https://github.com/user-attachments/assets/f2640a4c-fbe3-441b-a082-2482caf3427a)
 
-The neccessary variables for the Backup Job are as follows:
+The necessary variables for the Backup Job are as follows:
 
 - `migrationToken` (The Personal Access Token to be used by the backup job)
 - `sourceOrg` (The source Azure DevOps organization name)
@@ -178,7 +178,7 @@ Optionally, you may opt to store your Backup Job variables inside the YAML build
 
 You can extend the functionality of **ADO Backup Tool** by using custom configuration files. These files will override the default configuration of the underlying application behind the pipeline task, and enable you to change the behavior on a per-component basis.
 
-If you are simply demoing the backup functionality or otherwise have no use for custom confiugration files, you can skip ahead to step 6.
+If you are simply demoing the backup functionality or otherwise have no use for custom configuration files, you can skip ahead to step 6.
 
 #### Description of custom configuration file usage
 
@@ -212,7 +212,7 @@ You can view templates for individual configuration files for each ADO component
 
 You can find documentation and usage samples with example configuration files for each ADO component here: <https://github.com/solidify/azure-devops-backup-tool-docs/tree/main/adapter-docs>
 
-As an exercise, let us create a custom configuration file which will let us granularily filter which Work Items to export in the Backup Pipeline.
+As an exercise, let us create a custom configuration file which will let us granularly filter which Work Items to export in the Backup Pipeline.
 
 Start by creating a new folder inside the git repository named **Backup-Pipelines**:
 
@@ -247,7 +247,7 @@ The resulting file should look like this:
 
 ![image](https://github.com/user-attachments/assets/b8eff65a-a872-4b0d-8d30-c20e69be90a2)
 
-Save the new file by commiting it to the version control history:
+Save the new file by committing it to the version control history:
 
 ![image](https://github.com/user-attachments/assets/41f3a869-6b37-4ff6-8fda-121ab78e6d88)
 
@@ -255,7 +255,7 @@ We are now set up to use our custom configuration file.
 
 #### Verify the configuration file in use
 
-Let us verify that the pipeline has succesfully picked up our new custom configuration file.
+Let us verify that the pipeline has successfully picked up our new custom configuration file.
 
 Go ahead and **edit** the pipeline, and set the `System.Debug` property to `true`, like in the below screenshot:
 
@@ -265,7 +265,7 @@ Now, save and run the pipeline. Inspect the log for the **ADO Backup Tool: Expor
 
 ![image](https://github.com/user-attachments/assets/4372e788-aa3b-4fb3-b186-9d1c6e5dc828)
 
-If the configuration as reported by the pipeline is identical to the configuration you sepcified earlier, then everything is now set up correctly, and you can continue to step 6.
+If the configuration as reported by the pipeline is identical to the configuration you specified earlier, then everything is now set up correctly, and you can continue to step 6.
 
 ### 6. Running our backup pipeline and assessing the results
 
@@ -279,7 +279,7 @@ In the **Run pipeline** dialogue, simply click **Run**:
 
 ![image](https://github.com/user-attachments/assets/cc981eb3-5263-4129-9d0f-f09bfb6e1cd5)
 
-After clicking **Run**, you will be taken to the Run results screen. Simply wait here until the pipeline finishes or times out (you might need to refresh your browser tab). You may also need to authorize the pipeline to access all of the neccessary variable groups.
+After clicking **Run**, you will be taken to the Run results screen. Simply wait here until the pipeline finishes or times out (you might need to refresh your browser tab). You may also need to authorize the pipeline to access all of the necessary variable groups.
 
 If you ever need to get back to the Run results screen, simply navigate to **Pipelines** -> **Backup-Pipelines** -> (click the latest Run) from anywhere within Azure DevOps.
 
@@ -290,11 +290,11 @@ The pipeline should finish without errors.
 From the results screen of the run, you can do either of the following from the screen:
 
 - Click on the **Job** to view the log file.
-- Click on the build artifact to view the components that were succesfully backed up. We also require you to send us the build artifact in order to troubleshoot any issues.
+- Click on the build artifact to view the components that were successfully backed up. We also require you to send us the build artifact in order to troubleshoot any issues.
 
 ![image](https://github.com/user-attachments/assets/fa2dde04-00c0-408a-b834-217543b147b0)
 
-From the **Artifacs** menu, in order to download and inspect the build artifact, simply click the **downward-facing arrow to the left of "Export"** -> click the **3 dots to the right** -> **Download artifacts**. This will download a .zip-file to your computer which contains the backed up resources.
+From the **Artifacts** menu, in order to download and inspect the build artifact, simply click the **downward-facing arrow to the left of "Export"** -> click the **3 dots to the right** -> **Download artifacts**. This will download a .zip-file to your computer which contains the backed up resources.
 
 ![image](https://github.com/user-attachments/assets/bd7ebdf4-443b-4909-a30a-2490c301c1bf)
 
