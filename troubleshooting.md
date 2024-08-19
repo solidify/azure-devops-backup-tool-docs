@@ -8,7 +8,7 @@ You can submit an error report by emailing us at <support.adobackup@solidify.dev
 
 If the **Azure DevOps Backup Tool** fails to run properly, the problem can sometimes be remedied with some of the below steps:
 
-1. Run the pipeline with `$(System.Debug) = 'true'` (See the above section in this document).
+1. Run the pipeline with `$(System.Debug) = 'true'` to collect more diagnostics (See the below section in this document).
 1. Manually clear the workspace on the agent server and run the pipeline again.
 1. Ensure that two or more backup jobs are not running concurrently on the same machine.
 1. Ensure that the service account running the build agent has Read/Write access to the workspace folder.
