@@ -206,6 +206,8 @@ Save the pipeline before continuing with the next step.
 
 You provide custom configuration files by placing them in the **same git repository** as your backup/restore pipeline. The naming convention of the configuration files is always "config-[**type of component**]-[**export/import**].json.
 
+You can find additional information about the usage of custom configuration files here: <https://github.com/solidify/azure-devops-backup-tool-docs/blob/main/custom-configs.md>.
+
 You can view templates for individual configuration files for each ADO component here <https://github.com/solidify/azure-devops-backup-tool-docs/tree/main/config-templates>.
 
 You can find documentation and usage samples with example configuration files for each ADO component here: <https://github.com/solidify/azure-devops-backup-tool-docs/tree/main/adapter-docs>
