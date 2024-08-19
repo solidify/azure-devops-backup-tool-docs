@@ -269,9 +269,17 @@ If the configuration as reported by the pipeline is identical to the configurati
 
 ### 6. Running our backup pipeline and assessing the results
 
+Finally, let us run our newly created Backup Job and verify that the results are as expected.
+
+From the pipeline menu under **Pipelines**, click **Run pipeline**:
+
 ![image](https://github.com/user-attachments/assets/2051e879-6748-4efe-b99d-0c1e709a273f)
 
-After clicking **Run**, you will be taken to the Run results screen. Simply wait here until the pipeline finishes or times out (you might need to refresh your browser tab).
+In the **Run pipeline** dialogue, simply click **Run**:
+
+![image](https://github.com/user-attachments/assets/cc981eb3-5263-4129-9d0f-f09bfb6e1cd5)
+
+After clicking **Run**, you will be taken to the Run results screen. Simply wait here until the pipeline finishes or times out (you might need to refresh your browser tab). You may also need to authorize the pipeline to access all of the neccessary variable groups.
 
 If you ever need to get back to the Run results screen, simply navigate to **Pipelines** -> **Backup-Pipelines** -> (click the latest Run) from anywhere within Azure DevOps.
 
@@ -280,6 +288,11 @@ If you ever need to get back to the Run results screen, simply navigate to **Pip
 The pipeline should finish without errors:
 
 ![image](https://github.com/user-attachments/assets/fa2dde04-00c0-408a-b834-217543b147b0)
+
+In order the view the results of the build, you can do either of the following from the Run results screen:
+
+- Click on the **Job** to view the log file.
+- Click on the build artifact to view the components that were succesfully backed up. We also require you to send us the build artifact in order to troubleshoot any issues.
 
 ![image](https://github.com/user-attachments/assets/bd7ebdf4-443b-4909-a30a-2490c301c1bf)
 
