@@ -172,6 +172,9 @@ Optionally, you may opt to store your Backup Job variables inside the YAML build
 
 ### 5. Advanced config file usage + examples for various scenarios
 
+![image](https://github.com/user-attachments/assets/446d3000-5527-48eb-beaf-7efbdee2332b)
+
+
 ### 6. Running our backup pipeline and assessing the results
 
 ![image](https://github.com/user-attachments/assets/2051e879-6748-4efe-b99d-0c1e709a273f)
