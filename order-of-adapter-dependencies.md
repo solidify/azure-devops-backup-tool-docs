@@ -1,6 +1,6 @@
 # Adapter dependency order and hierarchy
 
-Some components in the ADO Bakcup Tool will depend on each other, thus it is crucial that you enable the correct set of components when **restoring** your project.
+Some components in the ADO Backup Tool will depend on each other, thus it is crucial that you enable the correct set of components when **restoring** your project.
 
 If you are only restoring a subset of components, please consult the graph in the next section to see what components you need to enable in your restore pipeline.
 
@@ -30,7 +30,7 @@ graph TD;
   TestPlan-->Dashboard;
 ```
 
-## How to read the hieararchy graph
+## How to read the hierarchy graph
 
 For the component you wish to restore, you must consult the graph and follow the arrows in reverse. You should enable the restoration of every component you encounter.
 
@@ -42,9 +42,9 @@ For restoration of Pipelines, after consulting the above graph, we deduce that w
 - VariableGroup
 - GitRepository
 
-### Example scenario: Environemnts
+### Example scenario: Environments
 
-For restoration of Environemnts, after consulting the above graph, we deduce that we must enable the restoration of the following components in the same pipeline:
+For restoration of Environments, after consulting the above graph, we deduce that we must enable the restoration of the following components in the same pipeline:
 
 - Pipeline
 - DeploymentGroup
