@@ -14,4 +14,16 @@ This document provides a detailed procedure for backing up your Azure DevOps (AD
 1. **Running our backup pipeline and assessing the results**
 1. **Troubleshooting and support requests**
 
-### When to use the manual mapping process
+### 1. Determining the correct Azure DevOps project to house our backup infrastructure
+
+### 2. Creating a git repository to hold our backup pipeline resources
+
+### 3. Creating our first backup pipeline
+
+### 4. Storing pipeline variables and secrets in Variable Groups
+
+### 5. Advanced config file usage + examples for various scenarios
+
+### 6. Running our backup pipeline and assessing the results
+
+### 7. Troubleshooting and support requests
