@@ -263,6 +263,8 @@ Now, save and run the pipeline. Inspect the log for the **ADO Backup Tool: Expor
 
 ![image](https://github.com/user-attachments/assets/4372e788-aa3b-4fb3-b186-9d1c6e5dc828)
 
+If the configuration as reported by the pipeline is identical to the configuration you sepcified earlier, then everything is now set up correctly, and you can continue to step 6.
+
 ### 6. Running our backup pipeline and assessing the results
 
 ![image](https://github.com/user-attachments/assets/2051e879-6748-4efe-b99d-0c1e709a273f)
