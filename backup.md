@@ -1,4 +1,4 @@
-# Azure DevOps Backup Tool: Guide to creating your first backup pipeline
+![image](https://github.com/user-attachments/assets/018f08bb-9e13-4053-9418-d20ed91f4eca)# Azure DevOps Backup Tool: Guide to creating your first backup pipeline
 
 ## Introduction
 
@@ -216,6 +216,14 @@ Now, save and run the pipeline. Inspect the log for the **ADO Backup Tool: Expor
 ### 6. Running our backup pipeline and assessing the results
 
 ![image](https://github.com/user-attachments/assets/2051e879-6748-4efe-b99d-0c1e709a273f)
+
+![image](https://github.com/user-attachments/assets/a694901a-e350-44ee-8a27-bf0e84fa904a)
+
+The pipeline should finish without errors:
+
+![image](https://github.com/user-attachments/assets/fa2dde04-00c0-408a-b834-217543b147b0)
+
+![image](https://github.com/user-attachments/assets/bd7ebdf4-443b-4909-a30a-2490c301c1bf)
 
 
 ### 7. Troubleshooting and support requests
