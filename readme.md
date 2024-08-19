@@ -12,6 +12,8 @@ Welcome to the Azure DevOps Backup Tool Documentation repository. This repositor
   - Detailed procedure for restoring your Azure DevOps organization or project using **Azure DevOps Pipelines**.
 - **custom-configs.md**
   - A guide on how to use custom configuration files in order to extend the functioality of Azure DevOps Backup Tool on a per-component basis.
+- **order-of-adapter-dependencies.md**
+  - A graph showing which components must be restored togheter when restoring a subset of all components.
 
 ### Folders
 
