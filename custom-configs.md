@@ -21,7 +21,9 @@ Our recommendation is to store the config files in a git repository in the same 
 - in the same repository as the backup pipeline definitions (specify the correct folder)
 - OR in a separate repository and checkout your configuration repository in the pipeline with the `resources` keyword.
 
-Templates for custom configuration files for each adapter can be found here: <https://github.com/solidify/azure-devops-backup-tool-docs>.
+You can view templates for individual configuration files for each ADO component here <https://github.com/solidify/azure-devops-backup-tool-docs/tree/main/config-templates>.
+
+You can find documentation and usage samples with example configuration files for each ADO component here: <https://github.com/solidify/azure-devops-backup-tool-docs/tree/main/adapter-docs>
 
 You config files must follow the naming pattern `config-[resource]-[export/import].json`. The following list shows all the valid config file names:
 
