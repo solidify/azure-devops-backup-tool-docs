@@ -1,4 +1,4 @@
-# Azure DevOps Backup Tool: Guide to creating your first backup pipeline
+![image](https://github.com/user-attachments/assets/d59a5852-121f-4094-b168-f4d5751f9322)# Azure DevOps Backup Tool: Guide to creating your first backup pipeline
 
 ## Introduction
 
@@ -48,10 +48,25 @@ When asked **Where is your code?**, select **Azure Repos Git (YAML)**:
 
 ![image](https://github.com/user-attachments/assets/d2dcebde-6a7f-415b-ace4-dae733991870)
 
+Under **Select Repository**, choose the repository you created in the previous step (`Backup-Pipelines`):
 
-  - **Select Repository**: Choose the repository you created in the previous step (`Backup-Pipelines`).
-  - **YAML Pipeline**: Opt for a YAML-based pipeline for better version control and flexibility. Use a template provided by the Azure DevOps Backup Tool or create your own from scratch.
-  - **Pipeline Script Example**: Below is a basic YAML configuration for a backup pipeline:
+![image](https://github.com/user-attachments/assets/612a9c85-7c83-48c7-97ec-ba862b2464b1)
+
+Under **Configure your pipeline**, choose **Starter pipeline**:
+
+![image](https://github.com/user-attachments/assets/b5c11231-8469-4410-a215-0e2836e45d60)
+
+You can now design your pipeline. You can bring in the tasks provided by **Azure DevOps Backup Tool** by clicking **Show assistant** and then searching for `Azure DevOps Backup Tool` in the assistant column.
+![image](https://github.com/user-attachments/assets/833e5276-92b2-4700-b082-158bde1923fd)
+
+![image](https://github.com/user-attachments/assets/146a849d-5542-454c-89bc-77a130056677)
+
+This will bring you into the task configuration. Here you you can view and change how the backup pipeline behaves, where it should look for components to back up, as well as API credentials for Azure DevOps:
+
+![image](https://github.com/user-attachments/assets/34e41969-f363-40bc-8c87-10a6f8bd2326)
+
+
+Below is a basic YAML configuration for a backup pipeline:
     ```yaml
     trigger:
       branches:
