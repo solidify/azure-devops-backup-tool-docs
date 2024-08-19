@@ -200,7 +200,15 @@ Optionally, you may opt to store your Backup Job variables inside the YAML build
 }
 ```
 
+#### Verify the configuration file in use
+
+Let us verify that the pipeline has succesfully picked up our new custom configuration file.
+
+Go ahead and **edit** the pipeline, and set the `System.Debug` property to `true`, like in the below screenshot:
+
 ![image](https://github.com/user-attachments/assets/f3763470-1284-4d38-881b-a16e53cca4aa)
+
+Now, save and run the pipeline. Inspect the log for the **ADO Backup Tool: Export** task and verify that the task is picking up the correct configuration file. The configuration should appear just like you entered it in the file `custom-configs/config-workitem-export.json`:
 
 ![image](https://github.com/user-attachments/assets/4372e788-aa3b-4fb3-b186-9d1c6e5dc828)
 
