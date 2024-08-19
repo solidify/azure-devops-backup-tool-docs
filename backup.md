@@ -212,7 +212,6 @@ Now, save and run the pipeline. Inspect the log for the **ADO Backup Tool: Expor
 
 ![image](https://github.com/user-attachments/assets/4372e788-aa3b-4fb3-b186-9d1c6e5dc828)
 
-
 ### 6. Running our backup pipeline and assessing the results
 
 ![image](https://github.com/user-attachments/assets/2051e879-6748-4efe-b99d-0c1e709a273f)
@@ -229,9 +228,8 @@ The pipeline should finish without errors:
 
 ![image](https://github.com/user-attachments/assets/bd7ebdf4-443b-4909-a30a-2490c301c1bf)
 
-#### Troubleshooting
+### 7. Troubleshooting and support requests
 
 ![image](https://github.com/user-attachments/assets/fc82e6f2-0a8c-4709-b194-9df51b871b01)
 
-
-### 7. Troubleshooting and support requests
+![image](https://github.com/user-attachments/assets/090cc3d1-04bf-4fa5-9af9-098efc7a9b34)
