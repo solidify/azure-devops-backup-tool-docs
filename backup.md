@@ -65,75 +65,89 @@ This will bring you into the task configuration. Here you you can view and chang
 
 ![image](https://github.com/user-attachments/assets/34e41969-f363-40bc-8c87-10a6f8bd2326)
 
-Below is a basic YAML configuration for a backup pipeline:
-    ```yaml
-    trigger: none
-    
-    workspace:
-      clean: all
-    
-    variables:
-    - group: backup-pipeline
-    - name: workspace
-      value: '$(System.DefaultWorkingDirectory)/MigrationWorkspace'
-    - name: System.Debug
-      value: false       # Set to "true" to enable system diagnostics for troubleshooting or support requests
-    
-    pool:
-      vmImage: windows-latest
-    
-    steps:
-    - task: ado-backup-tool-export@1
-      displayName: 'ADO Backup Tool: Export'
-      inputs:
-        source: '$(sourceUrl)'
-        sourceOrgName: '$(sourceOrg)'
-        sourceProject: '$(sourceProject)'
-        sourceUsername: '$(sourceUsername)'
-        sourcePAT: '$(migrationToken)'
-        onPrem: false
-        workspace: '$(workspace)'
-        useCustomConfigurations: true
-        customConfigurationPath: '$(System.DefaultWorkingDirectory)/custom-configs-contosoair-demo'
-        resourceAreaPath: true
-        resourceArtifact: true
-        resourceAuditLog: true
-        resourceBoard: true
-        resourceDeploymentGroup: true
-        resourceEnvironment: true
-        resourceGit: true
-        resourceGitBranchPolicy: true
-        resourceIterationPath: true
-        resourcePipeline: true
-        resourcePullRequest: true
-        resourceQuery: true
-        resourceTeam: true
-        resourceTestplan: true
-    #    resourceTFS: true      # Uncomment if there are any TFVC repositories in the target Project
-        resourceVariableGroup: true
-        resourceWiki: true
-        resourceWorkItem: true
-      env:
-        SYSTEM_ACCESSTOKEN: $(system.accesstoken)
-    
-    - task: ArchiveFiles@2
-      continueOnError: true
-      condition: succeededOrFailed()
-      inputs: 
-        rootFolderOrFile: '$(workspace)'
-        includeRootFolder: false
-        archiveType: 'zip'
-        archiveFile: '$(Build.ArtifactStagingDirectory)\$(Build.BuildNumber)-export.zip'
-        replaceExistingArchive: false
-            
-    - task: PublishPipelineArtifact@1
-      condition: succeededOrFailed()
-      continueOnError: true
-      inputs:
-        targetPath: '$(Build.ArtifactStagingDirectory)\$(Build.BuildNumber)-export.zip'
-        artifact: 'Export'
-        publishLocation: 'pipeline'
-    ```
+Below is a basic YAML configuration for a backup pipeline. In order to make the setup process as simple as possible, please copy the below code block in its entirety and paste into your YAML pipeline text editor:
+
+```yaml
+trigger: none
+
+workspace:
+  clean: all
+
+variables:
+- group: backup-pipeline
+- name: workspace
+  value: '$(System.DefaultWorkingDirectory)/MigrationWorkspace'
+- name: System.Debug
+  value: false       # Set to "true" to enable system diagnostics for troubleshooting or support requests
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- task: ado-backup-tool-export@1
+  displayName: 'ADO Backup Tool: Export'
+  inputs:
+    source: '$(sourceUrl)'
+    sourceOrgName: '$(sourceOrg)'
+    sourceProject: '$(sourceProject)'
+    sourceUsername: '$(sourceUsername)'
+    sourcePAT: '$(migrationToken)'
+    onPrem: false
+    workspace: '$(workspace)'
+    useCustomConfigurations: true
+    customConfigurationPath: '$(System.DefaultWorkingDirectory)/custom-configs-contosoair-demo'
+    resourceAreaPath: true
+    resourceArtifact: true
+    resourceAuditLog: true
+    resourceBoard: true
+    resourceDeploymentGroup: true
+    resourceEnvironment: true
+    resourceGit: true
+    resourceGitBranchPolicy: true
+    resourceIterationPath: true
+    resourcePipeline: true
+    resourcePullRequest: true
+    resourceQuery: true
+    resourceTeam: true
+    resourceTestplan: true
+#    resourceTFS: true      # Uncomment if there are any TFVC repositories in the target Project
+    resourceVariableGroup: true
+    resourceWiki: true
+    resourceWorkItem: true
+  env:
+    SYSTEM_ACCESSTOKEN: $(system.accesstoken)
+
+- task: ArchiveFiles@2
+  continueOnError: true
+  condition: succeededOrFailed()
+  inputs: 
+    rootFolderOrFile: '$(workspace)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)\$(Build.BuildNumber)-export.zip'
+    replaceExistingArchive: false
+        
+- task: PublishPipelineArtifact@1
+  condition: succeededOrFailed()
+  continueOnError: true
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)\$(Build.BuildNumber)-export.zip'
+    artifact: 'Export'
+    publishLocation: 'pipeline'
+```
+
+The resulting pipeline should now look like this:
+
+![image](https://github.com/user-attachments/assets/7743b6d6-6c86-4a3f-b6d6-ae4a0402d35c)
+
+Now click **Save**:
+
+![image](https://github.com/user-attachments/assets/033f98d9-08b1-4a2f-af08-a4e96d698c4b)
+
+In the **Save** dialogue, click **Save**:
+
+![image](https://github.com/user-attachments/assets/41f4ecc9-c8e5-445b-bdbb-e17be70db9c9)
+
 
 ### 4. Storing pipeline variables and secrets in Variable Groups
 
