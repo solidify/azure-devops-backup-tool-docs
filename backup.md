@@ -148,11 +148,13 @@ In the **Save** dialogue, click **Save**:
 
 ![image](https://github.com/user-attachments/assets/0b717dc2-6b07-4dd8-b1f1-35470c855e26)
 
-
 ### 4. Storing pipeline variables and secrets in Variable Groups
 
 ### 5. Advanced config file usage + examples for various scenarios
 
 ### 6. Running our backup pipeline and assessing the results
+
+![image](https://github.com/user-attachments/assets/2051e879-6748-4efe-b99d-0c1e709a273f)
+
 
 ### 7. Troubleshooting and support requests
