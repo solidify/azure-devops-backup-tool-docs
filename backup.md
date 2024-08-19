@@ -180,6 +180,25 @@ Optionally, you may opt to store your Backup Job variables inside the YAML build
 
 ![image](https://github.com/user-attachments/assets/41f3a869-6b37-4ff6-8fda-121ab78e6d88)
 
+```yaml
+{
+    "configuration":
+    {
+        "source": "https://dev.azure.com/solidify-managed-services-demo",
+        "target": "D:\\a\\1\\s\\MigrationWorkspace",
+        "batchSize": 50,
+        "skip": 0,
+        "projects": [
+            {
+              "name":"ContosoAir-Demo-Source",
+              "query":"Select * From WorkItems Where [System.TeamProject] = 'ContosoAir-Demo-Source' AND [System.CreatedDate] < '2024-08-08T00:00:00.0000000' Order By [Id] Asc"
+            }
+        ],
+        "SkipAlreadyDownloadedRevisions": true,
+        "apiVersion": "7.0"
+    }
+}
+```
 
 ### 6. Running our backup pipeline and assessing the results
 
