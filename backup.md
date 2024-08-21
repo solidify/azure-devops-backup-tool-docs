@@ -110,7 +110,7 @@ steps:
     resourceQuery: true
     resourceTeam: true
     resourceTestplan: true
-#    resourceTFS: true      # Uncomment if there are any TFVC repositories in the target Project
+#    resourceTFS: true      # Uncomment if there are any TFVC repositories in the source Project
     resourceVariableGroup: true
     resourceWiki: true
     resourceWorkItem: true
