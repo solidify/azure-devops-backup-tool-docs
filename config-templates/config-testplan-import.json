@@ -2,5 +2,8 @@
   "target": "__target__",
   "SourceFilePath": "__workspace__",
   "targetProject": "__targetProject__",
+  "AreaPathMapping": "__workspace__\\mappings\\areapath_map.csv",
+  "IterationPathMapping": "__workspace__\\mappings\\iterationpath_map.csv",
+  "WorkItemMapping": "__workspace__\\mappings\\workitem_map.csv",
   "apiVersion": "__apiVersion__"
 }
