@@ -16,8 +16,7 @@ graph TD;
   AreaPath-->WorkItem;
   IterationPath-->WorkItem;
   WorkItem-->Wiki;
-  AreaPath-->TestPlan;
-  IterationPath-->TestPlan;
+  WorkItem-->TestPlan;
   AreaPath-->Team;
   IterationPath-->Team;
   Team-->WitQuery
