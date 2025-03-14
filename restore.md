@@ -70,21 +70,25 @@ We strongly recommend that you use these files to facilitate the manual mapping 
 ## Creating and Setting Up the Git Repository for Mapping Files
 
 1. **Create a New Git Repository**:
-   - Create a new Git repository to hold the mapping files.
-   - After going through this guide, the Git repository should contain the following files (the file names must match exactly):
-     - `identity_map.csv`
-     - `queueid_map.csv`
-     - `serviceconnection_map.csv`
+   - Create the Git repository to hold the backup/restore infrastructure and the mapping files.
+   - After going through this guide, the Git repository should contain a folder (e.g. "mappings") with the following files (the file names must match exactly):
+     - `mappings/identity_map.csv`
+     - `mappings/queueid_map.csv`
+     - `mappings/serviceconnection_map.csv`
 
 2. **Add and Commit the Mapping Files**:
    - Add the mapping files to the repository.
    - Commit the changes.
    - Example:
      ```sh
+     cd mappings
      git add identity_map.csv queueid_map.csv serviceconnection_map.csv
      git commit -m "Add mapping files for ADO restore"
      git push origin main
      ```
+
+3. **Modify the restore pipeline**:
+   - Ensure that your **ado-backup-tool-import** step has the property `mappingFilePath: '$(System.DefaultWorkingDirectory)/mappings'`. The pipeline will then use the mappings in this folder to map all resources correctly.
 
 ## Instructions to Map Azure DevOps Agent Queue IDs Before Restoring a Backup
 
@@ -166,7 +170,7 @@ When restoring a backup in Azure DevOps, it is crucial to map the agent queue ID
    - After filling in the `queueid_map.csv`, commit this file to the specified Git repository.
 
 5. **Run the Restore Pipeline**:
-   - Execute the restore pipeline. The pipeline will use the mappings in `queueid_map.csv` to map the agent queues correctly.
+   - Execute the restore pipeline. Ensure that your **ado-backup-tool-import** step has the property `mappingFilePath: '$(System.DefaultWorkingDirectory)/mappings'`. The pipeline will then use the mappings in `queueid_map.csv` to map the agent queues correctly.
 
 ## Instructions to Map Azure DevOps Service Connections Before Restoring a Backup
 
@@ -245,7 +249,7 @@ When preparing to restore a backup in Azure DevOps, it is essential to map the s
    - After filling in the `serviceconnection_map.csv`, commit this file to the specified Git repository.
 
 5. **Run the Restore Pipeline**:
-   - Execute the restore pipeline. The pipeline will use the mappings in `serviceconnection_map.csv` to map the service connections correctly.
+   - Execute the restore pipeline. Ensure that your **ado-backup-tool-import** step has the property `mappingFilePath: '$(System.DefaultWorkingDirectory)/mappings'`. The pipeline will then use the mappings in `serviceconnection_map.csv` to map the service connections correctly.
 
 ## Instructions to Map Azure DevOps Users Before Restoring a Backup
 
@@ -326,7 +330,7 @@ When restoring a backup in Azure DevOps, it is crucial to map the user identitie
    - After filling in the `identity_map.csv`, commit this file to the specified Git repository.
 
 5. **Run the Restore Pipeline**:
-   - Execute the restore pipeline. The pipeline will use the mappings in `identity_map.csv` to map the user identities correctly.
+   - - Execute the restore pipeline. Ensure that your **ado-backup-tool-import** step has the property `mappingFilePath: '$(System.DefaultWorkingDirectory)/mappings'`. The pipeline will then use the mappings in `identity_map.csv` to map the user identities correctly.
 
 ## Setting Up the Restore Pipeline
 
@@ -376,7 +380,7 @@ steps:
     onPrem: false
     workspace: '$(workspace)'
     resourceWorkItem: true
-    mappingFilePath: '$(System.DefaultWorkingDirectory)/mapping-files'
+    mappingFilePath: '$(System.DefaultWorkingDirectory)/mappings'
   env:
     SYSTEM_ACCESSTOKEN: $(system.accesstoken)
 ```
