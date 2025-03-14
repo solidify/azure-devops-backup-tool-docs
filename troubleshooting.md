@@ -114,7 +114,7 @@ In order to gather additional diagnostics, we must perform the same Rest API que
 
 ### Step-by-step
 
-Firstly, inside the MigrationWorkspace, locate the corresponding .json definition for the failing resource, and copy this file in its entirety, for example: `<Source Project>\Imported____\FailedBuildDefinitions\PartsUnlimitedE2E.json`
+Firstly, inside the MigrationWorkspace, locate the corresponding .json definition for the failing resource, and copy this file in its entirety, for example: `<MigrationWorkspace>\Imported____\FailedBuildDefinitions\PartsUnlimitedE2E.json`
 
 Use any of the following software to set up a manual Rest API query:
 
