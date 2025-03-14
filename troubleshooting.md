@@ -123,7 +123,9 @@ Use any of the following software to set up a manual Rest API query:
 - Powershell
 - Other Rest API testing software
 
-This example will use **Postman**. You must now set up a POST request to the correct endpoint (for example, in the case of Build Definitions for ADO Cloud, use <https://dev.azure.com/ORGANIZATION/PROJECTNAME/_apis/build/definitions?api-version=7.0>). Paste the .json file as the body. The resulting request should look like this:
+This example will use **Postman**. You must now set up a POST request to the correct endpoint (for example, in the case of Build Definitions for ADO Cloud, use <https://dev.azure.com/ORGANIZATION/PROJECTNAME/_apis/build/definitions?api-version=7.0>). Consultants at Solidify can find the correct API URL by looking at the source code for synchub.
+
+Paste the .json file as the body. The resulting request should look like this:
 
 ![image](https://github.com/user-attachments/assets/05d681ef-7633-45f3-97f2-87cd1cccdd17)
 
