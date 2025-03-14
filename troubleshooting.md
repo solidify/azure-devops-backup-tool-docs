@@ -101,12 +101,20 @@ Email us at <support.adobackup@solidify.dev>
 
 ## How to troubleshoot migration errors due to erroneous HTTP responses
 
+### Issue overview
+
+If ADO Backup Tool could not not correctly import a resource, you will see an error message such as this in the log:
+
 ```
 [12:48:54 INF] Creating a Build Definition: PartsUnlimitedE2E
 [12:48:54 ERR] Message: Response status code does not indicate success: 400 (Bad Request)., InnerException: 
 ```
 
-Inside the MigrationWorkspace, find the corresponding .json definition for the failing resource, and copy this file in its entirety: `<Source Project>\BuildDefinitions\PartsUnlimitedE2E.json`
+In order to gather additional diagnostics, we must perform the same Rest API query manually. This example will show you how to do this using **Postman**. This example assumes that the failing resource is a Build Definition on ADO Cloud.
+
+### Step-by-step
+
+Firstly, inside the MigrationWorkspace, locate the corresponding .json definition for the failing resource, and copy this file in its entirety, for example: `<Source Project>\Imported____\FailedBuildDefinitions\PartsUnlimitedE2E.json`
 
 Use any of the following software to set up a manual Rest API query:
 
@@ -115,7 +123,7 @@ Use any of the following software to set up a manual Rest API query:
 - Powershell
 - Other Rest API testing software
 
-Set up a POST request to the correct endpoint (for example, in the case of Build Definitions for ADO Cloud, use <https://dev.azure.com/ORGANIZATION/PROJECTNAME/_apis/build/definitions?api-version=7.0>). Paste the .json file as the body. The resulting request should look like this:
+This example will use **Postman**. You must now set up a POST request to the correct endpoint (for example, in the case of Build Definitions for ADO Cloud, use <https://dev.azure.com/ORGANIZATION/PROJECTNAME/_apis/build/definitions?api-version=7.0>). Paste the .json file as the body. The resulting request should look like this:
 
 ![image](https://github.com/user-attachments/assets/05d681ef-7633-45f3-97f2-87cd1cccdd17)
 
@@ -124,6 +132,12 @@ The Authorization header should look like this:
 ![image](https://github.com/user-attachments/assets/d845064f-183f-4429-8c30-c31c0b8f0331)
 
 If you are scripting the API call manually, the authorization header should be "Basic Base64Encode(:PAT)".
+
+In the Response message, we can see the detailed message of the Bad Request response:
+
+![image](https://github.com/user-attachments/assets/ff4ea872-fb5e-4ac7-b807-b7195279558d)
+
+In this case, all we need to do is map the missing Agent Pool ID (126). In practise, the error message could be of many different kinds, but the most common issue is that you need to map some additional resource.
 
 ## Common errors
 
