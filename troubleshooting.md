@@ -99,7 +99,7 @@ In order for us to resolve a customer's problem with the ADO Backup Tool, the cu
 
 Email us at <support.adobackup@solidify.dev>
 
-## How to troubleshoot migration errors due to erroneous HTTP responses
+## How to troubleshoot migration errors due to erroneous HTTP responses (4XX or 5XX)
 
 ### Issue overview
 
