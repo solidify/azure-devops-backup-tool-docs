@@ -103,7 +103,7 @@ Email us at <support.adobackup@solidify.dev>
 
 ### Issue overview
 
-If ADO Backup Tool could not not correctly import a resource, you will see an error message such as this in the log:
+If ADO Backup Tool could not correctly import a resource, you will see an error message such as this in the log:
 
 ```
 [12:48:54 INF] Creating a Build Definition: PartsUnlimitedE2E
