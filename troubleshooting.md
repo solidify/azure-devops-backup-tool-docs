@@ -99,6 +99,32 @@ In order for us to resolve a customer's problem with the ADO Backup Tool, the cu
 
 Email us at <support.adobackup@solidify.dev>
 
+## How to troubleshoot migration errors due to erroneous HTTP responses
+
+```
+[12:48:54 INF] Creating a Build Definition: PartsUnlimitedE2E
+[12:48:54 ERR] Message: Response status code does not indicate success: 400 (Bad Request)., InnerException: 
+```
+
+Inside the MigrationWorkspace, find the corresponding .json definition for the failing resource, and copy this file in its entirety: `<Source Project>\BuildDefinitions\PartsUnlimitedE2E.json`
+
+Use any of the following software to set up a manual Rest API query:
+
+- Postman
+- cUrl
+- Powershell
+- Other Rest API testing software
+
+Set up a POST request to the correct endpoint (for example, in the case of Build Definitions for ADO Cloud, use <https://dev.azure.com/ORGANIZATION/PROJECTNAME/_apis/build/definitions?api-version=7.0>). Paste the .json file as the body. The resulting request should look like this:
+
+![image](https://github.com/user-attachments/assets/05d681ef-7633-45f3-97f2-87cd1cccdd17)
+
+The Authorization header should look like this:
+
+![image](https://github.com/user-attachments/assets/d845064f-183f-4429-8c30-c31c0b8f0331)
+
+If you are scripting the API call manually, the authorization header should be "Basic Base64Encode(:PAT)".
+
 ## Common errors
 
 ### Trial license cannot be activated. Error message: License file has not been specified. Please set the license in the extension settings.
