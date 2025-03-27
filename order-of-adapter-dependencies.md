@@ -27,6 +27,7 @@ graph TD;
   Environment-->Dashboard;
   WitQuery-->Dashboard;
   TestPlan-->Dashboard;
+  GitRepository-->Team;
 ```
 
 ## How to read the hierarchy graph
