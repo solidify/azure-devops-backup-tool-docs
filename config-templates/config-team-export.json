@@ -3,6 +3,8 @@
     {
       "source": "__source__",
       "target": "__workspace__",
+      "orgName": "__sourceOrgName__",
+      "onPrem": __onPrem__,
       "ProjectName": "__sourceProject__",
       "apiVersion": "__apiVersion__"
     }
