@@ -4,5 +4,10 @@
   "targetProject": "__targetProject__",
   "AreaPathMapping": "__workspace__\\mappings\\areapath_map.csv",
   "IterationPathMapping": "__workspace__\\mappings\\iterationpath_map.csv",
+  "IdentityMapping": "__workspace__\\mappings\\identity_map.csv",
+  "ProjectMapping": "__workspace__\\mappings\\project_map.csv",
+  "RepositoryMapping": "__workspace__\\mappings\\repository_map.csv",
+  "onPrem": __onPrem__,
+  "orgName": "__sourceOrgName__",
   "apiVersion": "__apiVersion__"
 }
