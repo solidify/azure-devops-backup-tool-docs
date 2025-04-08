@@ -28,6 +28,8 @@ graph TD;
   WitQuery-->Dashboard;
   TestPlan-->Dashboard;
   GitRepository-->Team;
+  GitRepository-->GitBranchPolicy;
+  Pipeline-->GitBranchPolicy;
 ```
 
 ## How to read the hierarchy graph
