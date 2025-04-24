@@ -6,6 +6,8 @@
       "orgName": "__sourceOrgName__",
       "onPrem": __onPrem__,
       "ProjectName": "__sourceProject__",
-      "apiVersion": "__apiVersion__"
+      "apiVersion": "__apiVersion__",
+      "includeGroupsAndMembers": false,
+      "includeAccessControlLists": false
     }
   }
