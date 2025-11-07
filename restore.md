@@ -356,7 +356,7 @@ variables:
   value: true
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-latest'
 
 steps:
 # Extract the snapshot from the backup server (here denoted with X:\)
