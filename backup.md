@@ -318,14 +318,7 @@ You can add a cleanup step at the end of your pipeline using a script task. Here
       Write-Host "Deleting task folder: $taskFolder"
       Remove-Item -Recurse -Force $taskFolder
 ```
-**Linux self‑hosted agent (Bash)**
-```yaml
-- script: |
-    TASK_FOLDER="$(Agent.WorkFolder)/_tasks\ado-backup-tool-export_3a8af2af-613f-4749-ade1-ea5649f11cd4"
-    echo "Deleting task folder: $TASK_FOLDER"
-    rm -rf "$TASK_FOLDER"
-  displayName: "Delete backup task folder"
-```
+
 
 ### 8. Troubleshooting and support requests
 
