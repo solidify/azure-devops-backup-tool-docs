@@ -300,7 +300,27 @@ From the **Artifacts** menu, in order to download and inspect the build artifact
 
 ![image](https://github.com/user-attachments/assets/bd7ebdf4-443b-4909-a30a-2490c301c1bf)
 
-### 7. Troubleshooting and support requests
+### 7. Running multiple backup pipelines
+
+When a pipeline runs on a self‑hosted agent, Azure DevOps creates a working directory under $(Agent.WorkFolder)\_tasks.
+If multiple backup pipelines run on the same agent, they may reuse or collide with the same task folder. Removing the folder after the backup task completes ensures each run starts fresh.
+
+You can add a cleanup step at the end of your pipeline using a script task. Here are two common approaches depending on your agent OS.
+
+**Windows self‑hosted agent (PowerShell)**
+```yaml
+- task: PowerShell@2
+  displayName: 'Delete backup task folder'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $taskFolder = "$(Agent.WorkFolder)\_tasks\ado-backup-tool-export_3a8af2af-613f-4749-ade1-ea5649f11cd4"
+      Write-Host "Deleting task folder: $taskFolder"
+      Remove-Item -Recurse -Force $taskFolder
+```
+
+
+### 8. Troubleshooting and support requests
 
 In the event that the ADO Backup Tool fails, you will receive an error message similar to this one at the bottom of the task log:
 
